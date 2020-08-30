@@ -4,20 +4,22 @@
 <meta charset="UTF-8">
 <title>Sign Up</title>
 <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.3/semantic.min.css">
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 <script src="js/jsbn.js"></script>
 <script src="js/jsbn2.js"></script>
 <script src="js/sjcl.js"></script>
 <script src="js/aws-sdk.min.js"></script>
 <script src="js/aws-cognito-sdk.min.js"></script>
 <script src="js/amazon-cognito-identity.min.js"></script>
-<script src="js/jquery-3.3.1.min.js"></script>
 <script src="js/signup.js"></script>
+<link rel="stylesheet" href="css/index.css">
 </head>
 <body>
-
+  <div id="center-block" class="ui segment">
     <div id="signup">
       <h1>Sign Up</h1>
-      <form name='form-signup'>
+      <form name='form-signup' class="ui form">
 	      <span style="display: inline-block; width: 150px;">User ID(Email)</span>
           <input type="text" id="email" placeholder="Email Address">
           <br/>
@@ -30,9 +32,9 @@
           <span style="display: inline-block; width: 150px;">Password</span>
           <input type="password" id="password" placeholder="Password">
           <br/><br/>
-          <a href="./activation.html"><input type="button" id="createAccount" value="Create Account"></a>
-          <h1>aa</h1>
+          <button style="margin-top : 10px;"　type="button" id="createAccount" value="Create Account" class="ui button">Sign Up</button>
 	  </form>
-	</div>
+  </div>
+  </div>
 </body>
 </html>

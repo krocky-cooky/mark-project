@@ -3,6 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <title>Activation</title>
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.3/semantic.min.css">
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 <script src="js/anime.js"></script>
 <script src="js/jsbn.js"></script>
 <script src="js/jsbn2.js"></script>
@@ -10,25 +13,28 @@
 <script src="js/aws-sdk.min.js"></script>
 <script src="js/aws-cognito-sdk.min.js"></script>
 <script src="js/amazon-cognito-identity.min.js"></script>
-<script src="js/jquery-3.3.1.min.js"></script>
 <script src="js/activation.js"></script>
+<link rel="stylesheet" href="css/index.css">
+
 
 </head>
 <body>
-
+    <div id="center-block" class="ui segment">
     <div id="activation">
         <h1>Activation</h1>
         <div><span style="color: red;">All fields are required.</span></div>
-        <form name="form-activation">
+        <form name="form-activation" class="ui form">
             <span style="display: inline-block; width: 150px;">Email Address</span>
             <input type="text" id="email" placeholder="Email Address">
             <br/>
             <span style="display: inline-block; width: 150px;">Activation Key</span>
             <input type="text" id="activationKey" placeholder="Activation Key">
             <br/><br/>
-            <a href="./signin.html"><input type="button" id="activationButton" value="Activation"></a>
+            <button style="margin-top : 10px;"　type="button" id="activationButton" value="Activation" class="ui button">認証</button>
 	    </form>
-	</div>
+    </div>
+    </div>
+
 
 </body>
 </html>

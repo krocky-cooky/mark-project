@@ -6,8 +6,11 @@ let imgElement = document.getElementById('imgelement');
     
     function upload(){
         let file = $('#id_file').prop('files')[0];
-        console.log(file);
+        $('#result').show();
+        $('#loading').addClass('active');
+        $('submit-btn').addClass('disabled');
         let imgElement = document.getElementById('imgelement');
+        let testName = $('#test_name').val();
         let inputElement = document.getElementById('id_file')
         let canvas = document.getElementById('canvasId');
         let email = currentUserData['email'];
@@ -46,11 +49,14 @@ let imgElement = document.getElementById('imgelement');
                 }
                 cv.imshow('canvasId',mat);
                 mat.delete();
+                $('#loading').removeClass('active');
+                $('#submit-btn').removeClass('disabled');
                 const canvas_img = document.querySelector("#canvasId").toDataURL("image/png");
                 console.log(typeof canvas_img);
                 data_dict = {
                     'image' : canvas_img,
                     'email' : email,
+                    'test' : testName
                 }
                 $.ajax({
                     url : 'https://isaqeh1up4.execute-api.us-east-1.amazonaws.com/test/test2-2',
@@ -76,3 +82,14 @@ let imgElement = document.getElementById('imgelement');
 
 
     }
+
+$('#modal-open').on('click',function(){
+    $('#modal-base').fadeIn();
+})
+
+$('#upload-button').on('click',function(e){
+    $('#test').text($('#test_name').val());
+    $('#answer').text($('#id_text').val());
+    $('#modal-base').fadeOut();
+    $('#blackseg').show();
+})

@@ -4,6 +4,8 @@
 <meta charset="UTF-8">
 <title>Sign In</title>
 <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.3/semantic.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.3/semantic.min.js"></script>
 <script src="js/jsbn.js"></script>
 <script src="js/jsbn2.js"></script>
 <script src="js/sjcl.js"></script>
@@ -11,21 +13,25 @@
 <script src="js/aws-cognito-sdk.min.js"></script>
 <script src="js/amazon-cognito-identity.min.js"></script>
 <script src="js/signin.js"></script>
+<link rel="stylesheet" href="css/index.css">
 </head>
 <body>
+    <div id="center-block" class="ui segment">
+
 
     <div id="signin">
         <h1>Sign In</h1>
         <div id="message"><span style="color: #ff0000;"></span></div>
-        <form name="form-signin">
+        <form name="form-signin" class="ui form">
             <span style="display: inline-block; width: 150px;">Email Address</span>
             <input type="text" id="email" placeholder="Email Address">
             <br/>
             <span style="display: inline-block; width: 150px;">Password</span>
             <input type="password" id="password" placeholder="Password">
             <br/>
-            <input type="button" id="signinButton" value="Sign In">
+            <button style="margin-top : 10px;" type="button" id="signinButton" value="Sign In" class="ui button">Sign In</button>
 	    </form>
-	</div>
+    </div>
+    </div>
 </body>
 </html>

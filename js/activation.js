@@ -50,7 +50,7 @@ var activate = function() {
                 $("div#message span").append(err.message);
             }
         } else {
-            // アクティベーション成功の場合、サインイン画面に遷移
+            window.location.href = 'signin.html';// アクティベーション成功の場合、サインイン画面に遷移
         }
     });
 };

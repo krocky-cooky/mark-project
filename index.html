@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <head>
     <meta charset="utf-8">
-    <title>automatic-marking</title>
+    <title>採点をする</title>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.3/semantic.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.3/semantic.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
     <script src="js/jsbn.js"></script>
     <script src="js/jsbn2.js"></script>
@@ -10,16 +12,68 @@
     <script src="js/aws-cognito-sdk.min.js"></script>
     <script src="js/amazon-cognito-identity.min.js"></script>
     <script src="js/menu.js"></script>
+    <link rel="stylesheet" href="css/index.css"></link>
 </head>
 <body>
-    <form id="my-form" method="post" enctype="multipart/form-data">
-    <input type="file" accept="image/*" id="id_file">
-    <input type="text" id="id_text"> 
-    <button type="button" onclick="upload()">アップロード</button>
-    </form>
-    <div id="result"></div>
-    <img id="imgelement" />
-    <canvas id="canvasId"></canvas>
+    <div id="modal-base">
+    <div id="modal" class="ui segment">
+        <form id="my-form" method="post" enctype="multipart/form-data" class="ui form">
+            <div class="inputs">
+                <p style="display:inline-block">テストの名前</p>
+                <input type="text" id="test_name" class="ui input" required>
+            </div>
+            <div class="inputs">
+                <p style="display:inline-block">答案の選択</p>
+            <input type="file" accept="image/*" id="id_file" class="ui input" required>
+            </div>
+            <div class="inputs">
+                <p style="display:inline-block">正答の登録</p>
+            <input type="text" id="id_text" class="ui input" required> 
+            </div>
+            <div>
+            <button type="button" class="ui blue button" id="upload-button">確定</button>
+            </div>
+            </form>
+    </div>
+    </div>
+    <div id="container-1">
+        <a class="ui button" href="./menu.html">戻る</a>
+        <div id="container-2">
+            
+            <div id="container-3">
+                <p id="title">採点設定</p>
+                <buttom type="button" class="ui icon button" id="modal-open"><i class="ui setting icon"></i></buttom>
+                <button type="button" class="ui blue button" onclick="upload()" id="submit-btn">この設定で採点</button>
+                <hr>
+            <div>
+                <span class="inline-dir">
+                <p class="name">テストの名前:</p><p class="space" id="test">未設定</p>
+                </span>
+            </div>
+            <div>
+                <span class="inline-dir">
+                    <p class="name">正答:</p><p class="space" id="answer">未設定</p>
+                </span>
+            </div>
+            </div>
+        </div>
+        <div style="display : flex;margin-top:10px;justify-content: space-between;">
+            <div style="flex-basis:30%">
+                <div class="ui black inverted segment" style="display:none;width:auto" id="blackseg" >
+        <img id="imgelement" style="height:600px;"/>
+        </div>
+        </div>
+        <div style="flex-basis:30%">
+            <div class="ui inverted black segment" style="width:auto;display:none;" id="result">
+                <div class="ui dimmer" id="loading">
+                    <div class="ui large text loader">採点しています</div>
+                </div>
+        <canvas id="canvasId"></canvas>
+            </div>
+        </div>
+        </div>
+    </div>
+    
     <script  src="https://docs.opencv.org/3.4.1/opencv.js"></script>
     <script src="js/upload.js"></script>
     

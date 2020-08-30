@@ -63,4 +63,5 @@ var signUp = function() {
 	      	window.location.href = 'activation.html';// サインアップ成功の場合、アクティベーション画面に遷移する
 	    }
     });
+
 }

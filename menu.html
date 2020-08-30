@@ -3,7 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <title>Menu</title>
-<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.3/semantic.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.3/semantic.min.js"></script>
+
 <script src="js/jsbn.js"></script>
 <script src="js/jsbn2.js"></script>
 <script src="js/sjcl.js"></script>
@@ -11,35 +14,108 @@
 <script src="js/aws-cognito-sdk.min.js"></script>
 <script src="js/amazon-cognito-identity.min.js"></script>
 <script src="js/menu.js"></script>
+<link rel="stylesheet" href="css/index.css"> 
 </head>
 <body>
-<div id="menu">
-    <h3 class='o1'></h3>
-    <a href="./index.html">自動採点する</a>
+    <div id="container-men-1">
+        <div id="container-men-2">
+            <div class="ui segment">
+            <div id="menu">
+                <h3 class='o1'></h3>
+                </div>
+        </div>
+        </div>
+        <div style="display : flex;justify-content: space-between;margin : 30px 30px;" >
+            <div class="switch" style="flex-basis : 40%">
+                <a href="./index.html">
+                <div style="margin-top:40px;">
+                <i class="ui massive edit icon"></i>
+                </div>
+                <div style="margin : 30px 0">
+                    <h1>採点する</h1>
+                </div>
+                </a>
+            </div>
+            <div class="switch" style="flex-basis : 40%" id="past-tests">
+                <a onclick="GetTestName()">
+                <div style="margin-top :40px;">
+                <i class="ui massive thumbtack icon"></i>
+            </div>
+            <div style="margin : 30px 0">
+                <h1>過去の採点を見る</h1>
+            </div>
+                </a>
+                
+            </div>
+            
+        </div>
+        <div id="res-tests" style="width:50%">
 
-    <!--<button type="button" onclick="GetS3Urls()">過去の採点済み解答用紙</button>-->
-    <button type="button" onclick="GetS3Urls()">過去の採点済み解答用紙</button>
+        </div>
+    </div>
 
     <script type="text/javascript">
-    console.log('menu.html')
 
-        function GetS3Urls() {
+        function GetTestName() {
             let text = currentUserData['email'];
-            let fd = new FormData();
-            fd.append('text', text);
             console.log(text);
+
             $.ajax({
                 url: "https://isaqeh1up4.execute-api.us-east-1.amazonaws.com/test/test2-3",
                 type: 'post',
                 dataType : 'json',
-                data: text,
+                data: JSON.stringify({"email" : text}),
             }).then(
                 data => {
-                    console.log('success')
-                    console.log(data)
+                    console.log(data);
+                    var i = 0;
+                    var test = [];
+                    data = data['body'];
+                    while(data[String(i)]){
+                        test.push(data[String(i)]);
+                        ++i;
+                    }
+                    for(var i = 0; i < test.length;++i){
+                       $('#res-tests').append('<div class="tests ui segment">' + test[i] + '<div></div></div>')
+
+                    }
+                    $('.tests').on('click',function(){
+                        getS3Urls(text,$(this).text(),$(this));
+
+                    })
+
+
+
                 },
                 error => {
                     console.log('fail')
+                }
+            )
+        }
+
+        function getS3Urls(text,test,elem){
+            $.ajax({
+                url: "https://isaqeh1up4.execute-api.us-east-1.amazonaws.com/test/test2-3",
+                type: 'post',
+                dataType : 'json',
+                data: JSON.stringify({"email" : text,"test":test}),
+            }).then(
+                data => {
+                    console.log(data);
+                    urls = [];
+                    data = data['body'];
+                    var i = 0;
+                    while(data[String(i)]){
+                        urls.push(data[String(i)]);
+                        ++i;
+                        console.log(i);
+                    }
+                    for(var i = 0; i < urls.length ; ++i){
+                        elem.children('div').append('<div class="ui segment urls"><a href=\"' + urls[i] + '\">' + urls[i] + '</a></div>');
+                    }
+                },
+                error => {
+                    console.log('fail');
                 }
             )
         }
