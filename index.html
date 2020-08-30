@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+    <title>automatic-marking</title>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="js/jsbn.js"></script>
+    <script src="js/jsbn2.js"></script>
+    <script src="js/sjcl.js"></script>
+    <script src="js/aws-sdk.min.js"></script>
+    <script src="js/aws-cognito-sdk.min.js"></script>
+    <script src="js/amazon-cognito-identity.min.js"></script>
+    <script src="js/menu.js"></script>
+</head>
+<body>
+    <form id="my-form" method="post" enctype="multipart/form-data">
+    <input type="file" accept="image/*" id="id_file">
+    <input type="text" id="id_text"> 
+    <button type="button" onclick="upload()">アップロード</button>
+    </form>
+    <div id="result"></div>
+    <img id="imgelement" />
+    <canvas id="canvasId"></canvas>
+    <script  src="https://docs.opencv.org/3.4.1/opencv.js"></script>
+    <script src="js/upload.js"></script>
+    
+</body>

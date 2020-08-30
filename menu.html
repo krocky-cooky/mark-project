@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Menu</title>
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script src="js/jsbn.js"></script>
+<script src="js/jsbn2.js"></script>
+<script src="js/sjcl.js"></script>
+<script src="js/aws-sdk.min.js"></script>
+<script src="js/aws-cognito-sdk.min.js"></script>
+<script src="js/amazon-cognito-identity.min.js"></script>
+<script src="js/menu.js"></script>
+</head>
+<body>
+<div id="menu">
+    <h3 class='o1'></h3>
+    <a href="./index.html">自動採点する</a>
+
+    <!--<button type="button" onclick="GetS3Urls()">過去の採点済み解答用紙</button>-->
+    <button type="button" onclick="GetS3Urls()">過去の採点済み解答用紙</button>
+
+    <script type="text/javascript">
+    console.log('menu.html')
+
+        function GetS3Urls() {
+            let text = currentUserData['email'];
+            let fd = new FormData();
+            fd.append('text', text);
+            console.log(text);
+            $.ajax({
+                url: "https://isaqeh1up4.execute-api.us-east-1.amazonaws.com/test/test2-3",
+                type: 'post',
+                dataType : 'json',
+                data: text,
+            }).then(
+                data => {
+                    console.log('success')
+                    console.log(data)
+                },
+                error => {
+                    console.log('fail')
+                }
+            )
+        }
+    </script>
+
+</div>
+</body>
+</html>

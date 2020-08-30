@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Activation</title>
+<script src="js/anime.js"></script>
+<script src="js/jsbn.js"></script>
+<script src="js/jsbn2.js"></script>
+<script src="js/sjcl.js"></script>
+<script src="js/aws-sdk.min.js"></script>
+<script src="js/aws-cognito-sdk.min.js"></script>
+<script src="js/amazon-cognito-identity.min.js"></script>
+<script src="js/jquery-3.3.1.min.js"></script>
+<script src="js/activation.js"></script>
+
+</head>
+<body>
+
+    <div id="activation">
+        <h1>Activation</h1>
+        <div><span style="color: red;">All fields are required.</span></div>
+        <form name="form-activation">
+            <span style="display: inline-block; width: 150px;">Email Address</span>
+            <input type="text" id="email" placeholder="Email Address">
+            <br/>
+            <span style="display: inline-block; width: 150px;">Activation Key</span>
+            <input type="text" id="activationKey" placeholder="Activation Key">
+            <br/><br/>
+            <a href="./signin.html"><input type="button" id="activationButton" value="Activation"></a>
+	    </form>
+	</div>
+
+</body>
+</html>
