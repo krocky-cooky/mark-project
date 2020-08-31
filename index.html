@@ -16,27 +16,7 @@
     <link rel="stylesheet" href="css/index.css"></link>
 </head>
 <body>
-    <div id="modal-base">
-    <div id="modal" class="ui segment">
-        <form id="my-form" method="post" enctype="multipart/form-data" class="ui form">
-            <div class="inputs">
-                <p style="display:inline-block">テストの名前</p>
-                <input type="text" id="test_name" class="ui input" required>
-            </div>
-            <div class="inputs">
-                <p style="display:inline-block">答案の選択</p>
-            <input type="file" accept="image/*" id="id_file" class="ui input" required>
-            </div>
-            <div class="inputs">
-                <p style="display:inline-block">正答の登録</p>
-            <input type="text" id="id_text" class="ui input" required> 
-            </div>
-            <div>
-            <button type="button" class="ui blue button" id="upload-button">確定</button>
-            </div>
-            </form>
-    </div>
-    </div>
+    
     <div id="container-1">
         <a class="ui button" href="./menu.html">戻る</a>
         <div id="container-2">
@@ -83,8 +63,30 @@
         </div>
         </div>
         </div>
+
+        
     </div>
-    
+    <div id="modal-base">
+        <div id="modal" class="ui segment">
+            <form id="my-form" method="post" enctype="multipart/form-data" class="ui form">
+                <div class="inputs">
+                    <p style="display:inline-block">テストの名前</p>
+                    <input type="text" id="test_name" class="ui input" required>
+                </div>
+                <div class="inputs">
+                    <p style="display:inline-block">答案の選択</p>
+                <input type="file" accept="image/*" id="id_file" class="ui input" required>
+                </div>
+                <div class="inputs">
+                    <p style="display:inline-block">正答の登録</p>
+                <input type="text" id="id_text" class="ui input" required> 
+                </div>
+                <div>
+                <button type="button" class="ui blue button" id="upload-button">確定</button>
+                </div>
+                </form>
+        </div>
+        </div>
     <script  src="https://docs.opencv.org/3.4.1/opencv.js"></script>
     <script src="js/upload.js"></script>
     

@@ -6,10 +6,13 @@ body{
 }
 #modal-base{
     display : none;
+    position : absolute;
+    top : 0;
+    left : 0;
     height : 100%;
     width : 100%;
     background: rgba(0,0,0,0.8);
-    z-index : 10
+    z-index : 100
 }
 #modal{
     padding-top : 100px;
