@@ -49,7 +49,7 @@
             </div>
             
         </div>
-        <div id="res-tests" style="width:50%">
+        <div id="res-tests" style="width:50%;margin:0 0 0 auto">
 
         </div>
     </div>
@@ -76,12 +76,12 @@
                         ++i;
                     }
                     for(var i = 0; i < test.length;++i){
-                       $('#res-tests').append('<div class="tests ui segment">' + test[i] + '<div></div></div>')
+                       $('#res-tests').append('<div class="tests ui segment" style="font-weight:bold">' + test[i] + '<div></div></div>');
 
                     }
                     $('.tests').on('click',function(){
                         getS3Urls(text,$(this).text(),$(this));
-
+                        
                     })
 
 

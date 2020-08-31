@@ -31,6 +31,8 @@ let imgElement = document.getElementById('imgelement');
         }).then(
             data => {
                 console.log(data);
+                $('#table')
+                var ans = 0;
                 var i = 0;
                 while(true){
                     var str_i = String(i);
@@ -41,14 +43,19 @@ let imgElement = document.getElementById('imgelement');
                             y = mat.rows*d['state_y'];
                             var center = new cv.Point(x,y);
                             cv.circle(mat,center,25,[255, 0, 0, 255],2);
+                            ans++;
                         }
                     }else{
                         break;
                     }
                     ++i;
                 }
+                --i;
                 cv.imshow('canvasId',mat);
                 mat.delete();
+                $('#table').append('<tr><td>問題数:</td><td>' + String(i) + '</td></tr>');
+                $('#table').append('<tr><td>正解数:</td><td>' + String(ans) + '</td></tr>');
+                $('#table_seg').show();
                 $('#loading').removeClass('active');
                 $('#submit-btn').removeClass('disabled');
                 const canvas_img = document.querySelector("#canvasId").toDataURL("image/png");
