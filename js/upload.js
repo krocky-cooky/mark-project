@@ -50,7 +50,6 @@ let imgElement = document.getElementById('imgelement');
                     }
                     ++i;
                 }
-                --i;
                 cv.imshow('canvasId',mat);
                 mat.delete();
                 $('#table').append('<tr><td>問題数:</td><td>' + String(i) + '</td></tr>');
