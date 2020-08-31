@@ -72,7 +72,8 @@ var signOut = function () {
     const signoutButton = document.getElementById("signout");
     signoutButton.addEventListener("click", event => {
         cognitoUser.signOut();
-        location.reload();
+        //location.reload();
+        window.location.href = 'menu.html';
     });
     signoutButton.hidden = false;
     console.log(currentUserData);

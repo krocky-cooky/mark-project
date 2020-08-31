@@ -61,7 +61,7 @@ var signIn = function() {
             console.log("refreshToken : " + refreshToken);
             console.log('遷移します')
 
-            window.location.href = 'menu.html'
+            window.location.href = 'signin.html'
 
             // サインイン成功の場合、次の画面へ遷移
         },
