@@ -52,15 +52,17 @@ var signUp = function() {
 	var attributeGivenName = new AmazonCognitoIdentity.CognitoUserAttribute(dataGivenName);
 
     attributeList.push(attributeFamilyName);
-    attributeList.push(attributeGivenName);
+	attributeList.push(attributeGivenName);
+	console.log('hello');
 
     // サインアップ処理
     userPool.signUp(username, password, attributeList, null, function(err, result){
 	    if (err) {
-	    	alert(err);
+			alert(err);
+			console.log('sign up 失敗')
 			return;
 	    } else {
-	      	window.location.href = 'activation.html';// サインアップ成功の場合、アクティベーション画面に遷移する
+	      	window.location.href = './activation.html';// サインアップ成功の場合、アクティベーション画面に遷移する
 	    }
     });
 }
