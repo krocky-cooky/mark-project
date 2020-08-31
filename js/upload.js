@@ -9,6 +9,7 @@ let imgElement = document.getElementById('imgelement');
         $('#result').show();
         $('#loading').addClass('active');
         $('submit-btn').addClass('disabled');
+        $('#table').empty();
         let imgElement = document.getElementById('imgelement');
         let testName = $('#test_name').val();
         let inputElement = document.getElementById('id_file')
